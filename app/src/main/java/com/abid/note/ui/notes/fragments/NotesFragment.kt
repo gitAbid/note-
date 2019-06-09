@@ -27,11 +27,12 @@ class NotesFragment : Fragment() {
             setHasFixedSize(true)
             adapter = NotebookAdapter(
                 listOf(
+                    NotebookModel("Add Notebook", 1, listOf(1, 2)),
                     NotebookModel("TO-DO", 1, listOf(1, 2)),
                     NotebookModel("Physics", 1, listOf(1, 2)),
                     NotebookModel("Chemistry", 1, listOf(1, 2)),
                     NotebookModel("Biology", 1, listOf(1, 2)),
-                    NotebookModel("Math", 1, listOf(1, 2))
+                    NotebookModel("Mathematics", 1, listOf(1, 2))
                 )
             )
 
