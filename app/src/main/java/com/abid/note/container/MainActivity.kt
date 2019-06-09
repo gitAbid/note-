@@ -1,7 +1,8 @@
-package com.abid.note
+package com.abid.note.container
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.abid.note.R
 
 class MainActivity : AppCompatActivity() {
 

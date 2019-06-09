@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/notesFragment">
+
+    <fragment android:id="@+id/notesFragment" android:name="com.abid.note.ui.notes.fragments.NotesFragment" android:label="fragment_notes"
+              tools:layout="@layout/fragment_notes">
+        <action android:id="@+id/ac_notebook" app:destination="@id/notebooksFragment"/>
+        <action android:id="@+id/ac_notedeails"
+                app:destination="@id/notesDetailsFragment"/>
+    </fragment>
+    <fragment android:id="@+id/notesDetailsFragment" android:name="com.abid.note.ui.details.fragments.NotesDetailsFragment"
+              android:label="fragment_notes_details" tools:layout="@layout/fragment_notes_details"/>
+    <fragment android:id="@+id/notebooksFragment" android:name="com.abid.note.ui.notebooks.fragments.NotebooksFragment"
+              android:label="fragment_notebooks" tools:layout="@layout/fragment_notebooks">
+        <action android:id="@+id/ac_notebook_details"
+                app:destination="@id/notesDetailsFragment"/>
+    </fragment>
+</navigation>
