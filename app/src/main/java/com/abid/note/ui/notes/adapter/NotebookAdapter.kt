@@ -34,7 +34,7 @@ class NotebookAdapter(var items: List<NotebookModel>) : RecyclerView.Adapter<Not
                 Toast.makeText(context, "Add Item Clicked", Toast.LENGTH_SHORT).show()
             }
         } else {
-            viewholder.notebookTitle?.text = items?.get(position)?.title
+            viewholder.notebookTitle?.text = items.get(position).title
             viewholder.notbookItem?.setOnClickListener {
                 Toast.makeText(context, "Notebook Item Clicked", Toast.LENGTH_SHORT).show()
             }
