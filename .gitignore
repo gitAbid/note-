@@ -1,6 +1,7 @@
 # Built application files
 *.apk
 *.ap_
+.idea/
 
 # Files for the Dalvik VM
 *.dex
@@ -30,3 +31,15 @@ proguard/
 
 # Android Studio captures folder
 captures/
+danone/danone.iml
+*.iml
+fis_location/
+
+fis_menu_manger/
+
+fis_location/fieldbuzz-smart-location
+
+fis-location/fieldbuzz-smart-location
+
+fis_menu_manger/buzz-droid-menu-manager/
+fis_menu_manger/
