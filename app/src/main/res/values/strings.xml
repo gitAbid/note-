@@ -5,4 +5,5 @@
     <string name="notebook_title">Notebooks</string>
     <string name="show_all_text">Show All</string>
     <string name="add_notebook_text">Add Notebook</string>
+    <string name="notes_title">Notes</string>
 </resources>

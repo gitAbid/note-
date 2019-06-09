@@ -9,7 +9,7 @@
 
     <LinearLayout android:layout_width="match_parent"
                   android:layout_height="0dp"
-                  android:layout_weight="40"
+                  android:layout_weight="35"
                   android:orientation="vertical" tools:ignore="Suspicious0dp">
 
         <LinearLayout android:orientation="horizontal" android:contentDescription="notebookSection"
@@ -38,7 +38,34 @@
                                                 android:layout_height="wrap_content"/>
     </LinearLayout>
 
-    <LinearLayout android:layout_width="match_parent" android:layout_weight="60"
+    <LinearLayout android:layout_width="match_parent" android:layout_weight="65"
                   android:orientation="vertical"
-                  android:layout_height="0dp" tools:ignore="Suspicious0dp"></LinearLayout>
+                  android:layout_height="0dp" tools:ignore="Suspicious0dp">
+
+        <LinearLayout android:orientation="horizontal" android:contentDescription="notebookSection"
+                      android:layout_width="match_parent"
+                      android:layout_marginTop="10dp"
+                      android:layout_height="wrap_content">
+
+            <TextView
+                    style="@style/TextAppearance.AppCompat.Title"
+                    android:text="@string/notes_title"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <TextView android:layout_weight="1"
+                      android:gravity="end"
+                      style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+                      android:text="@string/show_all_text"
+                      android:layout_width="match_parent"
+                      android:layout_height="wrap_content"/>
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcvNotes"
+                android:layout_width="match_parent"
+                                                android:layout_height="wrap_content"/>
+    </LinearLayout>
 </LinearLayout>
