@@ -47,7 +47,8 @@
               android:layout_weight="5"
               android:layout_height="0dp"/>
         <TextView
-                android:foreground="?android:attr/selectableItemBackground"
+                android:foreground="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
                 style="@style/TextAppearance.MaterialComponents.Button"
                 android:layout_weight="10"
                 android:text="Create Notebook"
@@ -57,7 +58,8 @@
                 android:paddingRight="16dp"
                 android:paddingLeft="16dp"
                 android:background="@drawable/pale_blue_bordered_background"
-                android:layout_height="0dp"/>
+                android:layout_height="0dp"
+                android:focusable="true"/>
     </LinearLayout>
 
 
