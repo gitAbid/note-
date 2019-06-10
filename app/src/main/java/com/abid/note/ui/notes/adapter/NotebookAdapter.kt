@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.abid.note.R
+import com.abid.note.listeners.NotebookNavigationListener
 import com.abid.note.ui.model.NotebookModel
 import kotlinx.android.synthetic.main.item_add_notebook.view.*
 import kotlinx.android.synthetic.main.item_notebook.view.*
@@ -18,7 +19,8 @@ import kotlinx.android.synthetic.main.item_notebook.view.*
  *
  */
 
-class NotebookAdapter(var items: List<NotebookModel>) : RecyclerView.Adapter<NotebookAdapter.ViewHolder>() {
+class NotebookAdapter(var items: List<NotebookModel>, var naviation: NotebookNavigationListener) :
+    RecyclerView.Adapter<NotebookAdapter.ViewHolder>() {
 
     private val FIRST_INDEX: Int = 0
     lateinit var context: Context
@@ -31,12 +33,12 @@ class NotebookAdapter(var items: List<NotebookModel>) : RecyclerView.Adapter<Not
 
         if (position == FIRST_INDEX) {
             viewholder.addNotebook?.setOnClickListener {
-                Toast.makeText(context, "Add Item Clicked", Toast.LENGTH_SHORT).show()
+                naviation.onAddNotebookClicked()
             }
         } else {
-            viewholder.notebookTitle?.text = items.get(position).title
+            viewholder.notebookTitle?.text = items[position].title
             viewholder.notbookItem?.setOnClickListener {
-                Toast.makeText(context, "Notebook Item Clicked", Toast.LENGTH_SHORT).show()
+                naviation.onNotebookItemClicked(it,position)
             }
         }
     }
@@ -44,6 +46,7 @@ class NotebookAdapter(var items: List<NotebookModel>) : RecyclerView.Adapter<Not
     override fun getItemViewType(position: Int): Int {
         return position
     }
+
     override fun onCreateViewHolder(viewholder: ViewGroup, position: Int): ViewHolder {
         context = viewholder.context
         if (position == FIRST_INDEX) {
