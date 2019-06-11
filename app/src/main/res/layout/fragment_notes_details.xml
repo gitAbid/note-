@@ -5,10 +5,9 @@
              android:layout_height="match_parent"
              tools:context=".ui.details.fragments.NotesDetailsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <fragment
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="@string/hello_blank_fragment"/>
-
+            android:name="com.ebolo.krichtexteditor.fragments.KRichEditorFragment"
+            android:id="@+id/fragment2"/>
 </FrameLayout>

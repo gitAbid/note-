@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import com.abid.note.R
+import com.abid.note.listeners.NoteItemListener
 import com.abid.note.listeners.NotebookNavigationListener
 import com.abid.note.ui.model.NoteModel
 import com.abid.note.ui.model.NotebookModel
@@ -17,7 +18,7 @@ import com.abid.note.ui.notes.adapter.NoteAdapter
 import com.abid.note.ui.notes.adapter.NotebookAdapter
 import kotlinx.android.synthetic.main.fragment_notes.*
 
-class NotesFragment : Fragment(), NotebookNavigationListener {
+class NotesFragment : Fragment(), NotebookNavigationListener, NoteItemListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_notes, container, false)
@@ -56,7 +57,8 @@ class NotesFragment : Fragment(), NotebookNavigationListener {
                     /* NoteModel(1, "This is an demo note text Title", text, listOf(1,2)),
                      NoteModel(1, "This is an demo note text Title", text, listOf(1,2)),
                      NoteModel(1, "This is an demo note text Title", text, listOf(1,2))*/
-                )
+                ),
+                this@NotesFragment
             )
 
         }
@@ -71,5 +73,8 @@ class NotesFragment : Fragment(), NotebookNavigationListener {
         Toast.makeText(context, "Notebook Item Clicked", Toast.LENGTH_SHORT).show()
     }
 
+    override fun onItemClickListener(position: Int) {
+        NavHostFragment.findNavController(this).navigate(R.id.ac_note_details)
+    }
 
 }

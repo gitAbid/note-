@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import com.abid.note.R
+import com.abid.note.listeners.NoteItemListener
 import com.abid.note.ui.model.NoteModel
-import com.abid.note.ui.model.NotebookModel
-import kotlinx.android.synthetic.main.item_add_notebook.view.*
 import kotlinx.android.synthetic.main.item_notebook.view.*
 import kotlinx.android.synthetic.main.item_notebook.view.tvNotebookTitle
 import kotlinx.android.synthetic.main.item_notes.view.*
@@ -21,7 +20,8 @@ import kotlinx.android.synthetic.main.item_notes.view.*
  *
  */
 
-class NoteAdapter(var items: List<NoteModel>) : RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
+class NoteAdapter(var items: List<NoteModel>, var itemListener: NoteItemListener) :
+    RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     lateinit var context: Context
 
     override fun getItemCount(): Int {
@@ -29,31 +29,32 @@ class NoteAdapter(var items: List<NoteModel>) : RecyclerView.Adapter<NoteAdapter
     }
 
     override fun onBindViewHolder(viewholder: ViewHolder, position: Int) {
-            viewholder.notebookTitle?.text = items.get(position).title
-            viewholder.notebookDescription?.text = items.get(position).description
-            viewholder.notbookItem?.setOnClickListener {
-                Toast.makeText(context, "Notebook Item Clicked", Toast.LENGTH_SHORT).show()
-            }
+        viewholder.notebookTitle?.text = items.get(position).title
+        viewholder.notebookDescription?.text = items.get(position).description
+        viewholder.noteItem?.setOnClickListener {
+            itemListener.onItemClickListener(position)
+        }
     }
 
     override fun getItemViewType(position: Int): Int {
         return position
     }
+
     override fun onCreateViewHolder(viewholder: ViewGroup, position: Int): ViewHolder {
         context = viewholder.context
 
-            return ViewHolder(
-                LayoutInflater.from(viewholder.context).inflate(
-                    R.layout.item_notes,
-                    viewholder,
-                    false
-                )
+        return ViewHolder(
+            LayoutInflater.from(viewholder.context).inflate(
+                R.layout.item_notes,
+                viewholder,
+                false
             )
+        )
 
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val notbookItem = view.llNotebookItem
+        val noteItem = view.llNoteItem
         val notebookTitle = view.tvNotebookTitle
         val notebookDescription = view.tvNotebookDescription
     }

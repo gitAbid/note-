@@ -8,7 +8,7 @@
               tools:layout="@layout/fragment_notes">
         <action android:id="@+id/ac_notebook" app:destination="@id/notebooksFragment"
         />
-        <action android:id="@+id/ac_notedeails"
+        <action android:id="@+id/ac_note_details"
                 app:destination="@id/notesDetailsFragment"/>
         <action android:id="@+id/ac_new_notebook"
                 app:destination="@id/newNotebookFragment" app:enterAnim="@anim/nav_default_enter_anim"
