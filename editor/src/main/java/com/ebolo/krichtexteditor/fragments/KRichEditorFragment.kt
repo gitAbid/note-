@@ -11,7 +11,7 @@ import com.ebolo.krichtexteditor.ui.layouts.KRichEditorFragmentLayout
 import com.ebolo.krichtexteditor.ui.widgets.EditorButton
 import org.jetbrains.anko.AnkoContext
 
-class KRichEditorFragment: Fragment() {
+open class KRichEditorFragment: Fragment() {
     private val layout by lazy { KRichEditorFragmentLayout() }
     val editor = RichEditor()
     var settings: ((KRichEditorFragmentLayout).() -> Unit)? = null
