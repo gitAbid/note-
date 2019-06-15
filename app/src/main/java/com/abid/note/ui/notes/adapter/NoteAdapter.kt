@@ -5,11 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.abid.note.R
 import com.abid.note.listeners.NoteItemListener
-import com.abid.note.ui.model.NoteModel
-import kotlinx.android.synthetic.main.item_notebook.view.*
+import com.abid.note.ui.models.Note
 import kotlinx.android.synthetic.main.item_notebook.view.tvNotebookTitle
 import kotlinx.android.synthetic.main.item_notes.view.*
 
@@ -20,7 +18,7 @@ import kotlinx.android.synthetic.main.item_notes.view.*
  *
  */
 
-class NoteAdapter(var items: List<NoteModel>, var itemListener: NoteItemListener) :
+class NoteAdapter(var items: List<Note>, var itemListener: NoteItemListener) :
     RecyclerView.Adapter<NoteAdapter.ViewHolder>() {
     lateinit var context: Context
 

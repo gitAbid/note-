@@ -5,10 +5,9 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import com.abid.note.R
 import com.abid.note.listeners.NotebookNavigationListener
-import com.abid.note.ui.model.NotebookModel
+import com.abid.note.ui.models.Notebook
 import kotlinx.android.synthetic.main.item_add_notebook.view.*
 import kotlinx.android.synthetic.main.item_notebook.view.*
 
@@ -19,7 +18,7 @@ import kotlinx.android.synthetic.main.item_notebook.view.*
  *
  */
 
-class NotebookAdapter(var items: List<NotebookModel>, var naviation: NotebookNavigationListener) :
+class NotebookAdapter(var items: List<Notebook>, var naviation: NotebookNavigationListener) :
     RecyclerView.Adapter<NotebookAdapter.ViewHolder>() {
 
     private val FIRST_INDEX: Int = 0
