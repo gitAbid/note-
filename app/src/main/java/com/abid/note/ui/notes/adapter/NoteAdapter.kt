@@ -28,7 +28,7 @@ class NoteAdapter(var items: List<Note>, var itemListener: NoteItemListener) :
 
     override fun onBindViewHolder(viewholder: ViewHolder, position: Int) {
         viewholder.notebookTitle?.text = items.get(position).title
-        viewholder.notebookDescription?.text = items.get(position).description
+        viewholder.notebookDescription?.text = items.get(position).body
         viewholder.noteItem?.setOnClickListener {
             itemListener.onItemClickListener(position)
         }
