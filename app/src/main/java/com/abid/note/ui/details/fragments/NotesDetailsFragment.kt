@@ -1,20 +1,26 @@
 package com.abid.note.ui.details.fragments
 
 
+import android.content.Context
 import android.content.Intent
+import android.graphics.ColorFilter
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import com.abid.note.R
 import com.ebolo.krichtexteditor.fragments.KRichEditorFragment
 import com.ebolo.krichtexteditor.fragments.Options
 import com.ebolo.krichtexteditor.ui.widgets.EditorButton
 import com.esafirm.imagepicker.features.ImagePicker
+import kotlinx.android.synthetic.main.fragment_notes_details.*
 
 class NotesDetailsFragment : Fragment() {
 
+    private var isExists: Boolean = false
     private lateinit var editorFragment: KRichEditorFragment
 
 
@@ -44,6 +50,36 @@ class NotesDetailsFragment : Fragment() {
             R.id.container, editorFragment
         )?.commit()
 
+
+        addTagFeature()
+        addAlarmFeature()
+
+    }
+
+    private fun addAlarmFeature() {
+    }
+
+    private fun addTagFeature() {
+        ivTag.setOnClickListener({
+            toggleColor(it as ImageView?)
+        })
+    }
+
+
+    private fun toggleColor(it: ImageView?) {
+        if (!isExists) {
+            it?.setColorFilter(
+                ContextCompat.getColor(activity as Context, R.color.green),
+                android.graphics.PorterDuff.Mode.SRC_IN
+            )
+            isExists = true
+        } else {
+            it?.setColorFilter(
+                ContextCompat.getColor(activity as Context, R.color.black),
+                android.graphics.PorterDuff.Mode.SRC_IN
+            )
+            isExists = false
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
