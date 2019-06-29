@@ -1,16 +1,13 @@
 package com.abid.note.database.room
 
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Delete
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
+import android.arch.persistence.room.*
 import com.abid.note.database.base.BaseDataProvider
 import com.abid.note.ui.models.Note
 import com.abid.note.ui.models.Notebook
 import com.abid.note.ui.models.Tag
 
 @Dao
-interface RoomDao  {
+interface RoomDao {
     @Query("Select * From Note")
     fun getAllNotes(): List<Note>
 
@@ -22,6 +19,9 @@ interface RoomDao  {
 
     @Insert
     fun addNote(note: Note)
+
+    @Update
+    fun updatNote(note: Note)
 
     @Insert
     fun addNotebook(notebook: Notebook)
@@ -37,4 +37,7 @@ interface RoomDao  {
 
     @Delete
     fun deleteTag(tag: Tag)
+
+    @Query("Select * from Note as n where n.id=:noteId")
+    fun getNoteById(noteId: Long): Note
 }

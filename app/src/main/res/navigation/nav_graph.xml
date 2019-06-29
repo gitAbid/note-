@@ -4,24 +4,31 @@
             xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
             app:startDestination="@id/notesFragment">
 
-    <fragment android:id="@+id/notesFragment" android:name="com.abid.note.ui.notes.fragments.NotesFragment" android:label="fragment_notes"
+    <fragment android:id="@+id/notesFragment" android:name="com.abid.note.ui.notes.fragments.NotesFragment"
+              android:label="fragment_notes"
               tools:layout="@layout/fragment_notes">
         <action android:id="@+id/ac_notebook" app:destination="@id/notebooksFragment"
         />
         <action android:id="@+id/ac_note_details"
-                app:destination="@id/notesDetailsFragment"/>
+                app:destination="@+id/notesDetailsFragment" app:enterAnim="@anim/nav_default_enter_anim"
+                app:exitAnim="@anim/nav_default_exit_anim" app:popEnterAnim="@anim/nav_default_pop_enter_anim"
+                app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
         <action android:id="@+id/ac_new_notebook"
                 app:destination="@id/newNotebookFragment" app:enterAnim="@anim/nav_default_enter_anim"
                 app:exitAnim="@anim/nav_default_exit_anim" app:popEnterAnim="@anim/nav_default_pop_enter_anim"
                 app:popExitAnim="@anim/nav_default_pop_exit_anim"/>
     </fragment>
-    <fragment android:id="@+id/notesDetailsFragment" android:name="com.abid.note.ui.details.fragments.NotesDetailsFragment"
-              android:label="fragment_notes_details" tools:layout="@layout/fragment_notes_details"/>
+    <fragment android:id="@+id/notesDetailsFragment"
+              android:name="com.abid.note.ui.details.fragments.NotesDetailsFragment"
+              android:label="fragment_notes_details" tools:layout="@layout/fragment_notes_details">
+        <argument android:name="ID" app:argType="long" android:defaultValue="0L"/>
+    </fragment>
     <fragment android:id="@+id/notebooksFragment" android:name="com.abid.note.ui.notebooks.fragments.NotebooksFragment"
               android:label="fragment_notebooks" tools:layout="@layout/fragment_notebooks">
         <action android:id="@+id/ac_notebook_details"
                 app:destination="@id/notesDetailsFragment"/>
     </fragment>
-    <fragment android:id="@+id/newNotebookFragment" android:name="com.abid.note.ui.notebooks.fragments.NewNotebookFragment"
+    <fragment android:id="@+id/newNotebookFragment"
+              android:name="com.abid.note.ui.notebooks.fragments.NewNotebookFragment"
               android:label="fragment_new_notebook" tools:layout="@layout/fragment_new_notebook"/>
 </navigation>

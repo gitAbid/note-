@@ -27,7 +27,7 @@ class NoteAdapter(var items: List<Note>, var itemListener: NoteItemListener) :
     }
 
     override fun onBindViewHolder(viewholder: ViewHolder, position: Int) {
-        viewholder.notebookTitle?.text = items.get(position).title
+        viewholder.notebookTitle?.text = "${items.get(position).id} . ${items.get(position).title}"
         viewholder.notebookDescription?.text = items.get(position).body
         viewholder.noteItem?.setOnClickListener {
             itemListener.onItemClickListener(position)
@@ -40,7 +40,6 @@ class NoteAdapter(var items: List<Note>, var itemListener: NoteItemListener) :
 
     override fun onCreateViewHolder(viewholder: ViewGroup, position: Int): ViewHolder {
         context = viewholder.context
-
         return ViewHolder(
             LayoutInflater.from(viewholder.context).inflate(
                 R.layout.item_notes,
@@ -49,6 +48,11 @@ class NoteAdapter(var items: List<Note>, var itemListener: NoteItemListener) :
             )
         )
 
+    }
+
+    fun update(notes: List<Note>) {
+        items = notes
+        notifyDataSetChanged()
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
