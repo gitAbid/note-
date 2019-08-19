@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:orientation="vertical"
+              android:background="@color/white"
+              android:layout_height="match_parent"
+              tools:context=".ui.details.fragments.NotesDetailsFragment">
+
+    <android.support.v7.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <LinearLayout android:layout_width="match_parent"
+                      android:layout_height="wrap_content"
+                      android:orientation="vertical">
+            <EditText
+                    android:id="@+id/etNoteTitle"
+                    android:textSize="25sp"
+                    android:textColor="@color/green"
+                    android:hint="Title"
+                    android:padding="16dp"
+                    android:maxLines="3"
+                    android:ellipsize="end"
+                    android:background="@android:color/transparent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            <LinearLayout android:orientation="horizontal"
+                          android:layout_marginLeft="16dp"
+                          android:layout_width="match_parent"
+                          android:layout_height="?android:actionBarSize">
+                <TextView android:layout_width="0dp"
+                          android:layout_weight="70"
+                          android:id="@+id/tvDateTime"
+                          android:gravity="start|center"
+                          android:textSize="16dp"
+                          android:text="Mar 18, 2019 08:00 PM"
+                          android:layout_height="match_parent"/>
+                <ImageView android:layout_width="0dp"
+                           android:layout_weight="15"
+                           android:id="@+id/ivAlarm"
+                           android:padding="14dp"
+                           android:src="@drawable/ic_alarm"
+                           android:layout_gravity="center"
+                           android:layout_height="match_parent"/>
+                <ImageView android:layout_width="0dp"
+                           android:padding="14dp"
+                           android:id="@+id/ivTag"
+                           android:src="@drawable/ic_tag"
+                           android:layout_gravity="center"
+                           android:layout_height="match_parent"
+                           android:layout_weight="15"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.v7.widget.CardView>
+    <FrameLayout
+            android:id="@+id/container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+</LinearLayout>
